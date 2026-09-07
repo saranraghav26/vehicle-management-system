@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | WheelWise — Vehicle Booking</title>
+
+    <!-- Bootstrap 5 CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+
+    <!-- =============================================
+         LOGIN SCREEN
+         Valid + submitted → home.html
+         ============================================= -->
+    <section id="login" class="auth-screen d-flex align-items-center justify-content-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+
+                    <!-- Auth card -->
+                    <div class="auth-card">
+
+                        <!-- Branding -->
+                        <div class="auth-brand text-center">
+                            <div class="auth-logo d-inline-flex align-items-center justify-content-center">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="WheelWise car logo">
+                                    <path d="M5.4 11.5 6.8 8.3a2.2 2.2 0 0 1 2-1.3h6.4a2.2 2.2 0 0 1 2 1.3l1.4 3.2"
+                                          stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3.6 11.5h16.8a1 1 0 0 1 1 1v3.4a2 2 0 0 1-2 2h-1.7a2.3 2.3 0 0 0-4.6 0h-4.2a2.3 2.3 0 0 0-4.6 0H4.6a2 2 0 0 1-2-2v-3.4a1 1 0 0 1 1-1z"
+                                          stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/>
+                                    <circle cx="7.4" cy="17.4" r="1.05" stroke="#fff" stroke-width="1.4"/>
+                                    <circle cx="16.6" cy="17.4" r="1.05" stroke="#fff" stroke-width="1.4"/>
+                                </svg>
+                            </div>
+                            <h1 class="auth-title">Wheel<span class="text-accent">Wise</span></h1>
+                            <h2 class="auth-welcome">Welcome back</h2>
+                            <p class="auth-subtext mb-0">Sign in to continue booking your ride.</p>
+                        </div>
+
+                        <!-- Login form -->
+                        <form id="loginForm" novalidate>
+
+                            <!-- Email -->
+                            <div class="mb-3" id="emailGroup">
+                                <label class="form-label" for="loginEmail">Email address</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                                        </svg>
+                                    </span>
+                                    <input type="email" class="form-control" id="loginEmail" name="email"
+                                           placeholder="you@example.com" autocomplete="email">
+                                </div>
+                                <div class="invalid-feedback" id="emailError"></div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="mb-3" id="passwordGroup">
+                                <label class="form-label" for="loginPassword">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <rect x="3" y="11" width="18" height="10" rx="2"/>
+                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                        </svg>
+                                    </span>
+                                    <input type="password" class="form-control" id="loginPassword" name="password"
+                                           placeholder="Enter your password" autocomplete="current-password">
+                                    <button type="button" class="btn btn-toggle-pw" id="togglePassword"
+                                            aria-label="Show or hide password" title="Show / hide password">
+                                        <svg id="iconEyeShow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                        <svg id="iconEyeHide" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                             aria-hidden="true" style="display:none">
+                                            <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
+                                            <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
+                                            <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
+                                            <line x1="2" x2="22" y1="2" y2="22"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="invalid-feedback" id="passwordError"></div>
+                            </div>
+
+                            <!-- Remember me + Forgot password -->
+                            <div class="d-flex justify-content-between align-items-center mb-3 auth-tools">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                                </div>
+                                <a href="#" id="forgotLink" class="link-forgot">Forgot Password?</a>
+                            </div>
+
+                            <!-- Info alert (forgot password) -->
+                            <div class="alert alert-info auth-alert py-2 d-none" id="forgotAlert" role="alert">
+                                Password reset is coming in a later milestone — no worries!
+                            </div>
+
+                            <!-- Login button -->
+                            <button type="submit" class="btn btn-login w-100" id="btnLogin">Sign In</button>
+
+                            <!-- Register switch -->
+                            <p class="auth-switch text-center mt-3 mb-0">
+                                Don&rsquo;t have an account?
+                                <a href="register.html" class="auth-link">Register</a>
+                            </p>
+                        </form>
+
+                    </div>
+
+                    <!-- Footer -->
+                    <p class="auth-foot text-center mt-4">
+                        WheelWise &middot; Vehicle Booking &middot; Full Stack Course Project
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery (CDN) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS bundle (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Auth logic -->
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

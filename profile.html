@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | WheelWise — Vehicle Booking</title>
+
+    <!-- Bootstrap 5 CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="home-page">
+
+    <!-- =============================================
+         NAVBAR
+         ============================================= -->
+    <nav class="navbar navbar-expand-lg home-navbar sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="home.html">
+                <span class="brand-badge d-inline-flex align-items-center justify-content-center me-2">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M5.4 11.5 6.8 8.3a2.2 2.2 0 0 1 2-1.3h6.4a2.2 2.2 0 0 1 2 1.3l1.4 3.2"
+                              stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3.6 11.5h16.8a1 1 0 0 1 1 1v3.4a2 2 0 0 1-2 2h-1.7a2.3 2.3 0 0 0-4.6 0h-4.2a2.3 2.3 0 0 0-4.6 0H4.6a2 2 0 0 1-2-2v-3.4a1 1 0 0 1 1-1z"
+                              stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/>
+                        <circle cx="7.4" cy="17.4" r="1.05" stroke="#fff" stroke-width="1.4"/>
+                        <circle cx="16.6" cy="17.4" r="1.05" stroke="#fff" stroke-width="1.4"/>
+                    </svg>
+                </span>
+                Wheel<span class="text-accent">Wise</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="vehicles.html">Vehicles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="my-bookings.html">My Bookings</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="profile.html">Profile</a></li>
+                </ul>
+                <button type="button" class="btn btn-logout" id="btnLogout">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container section-pad">
+
+        <!-- =============================================
+             PROFILE CONTENT (shown when ww_user exists)
+             ============================================= -->
+        <div id="profileContent" class="d-none">
+
+            <!-- Heading -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
+                <div>
+                    <h1 class="section-title">My Profile</h1>
+                    <p class="section-sub">View and manage your account information.</p>
+                </div>
+            </div>
+
+            <!-- Success alert -->
+            <div id="profileSuccessAlert" class="alert alert-success alert-dismissible fade d-none" role="alert">
+                <strong>Profile updated successfully.</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- LEFT column: avatar + account actions -->
+                <div class="col-lg-4">
+
+                    <!-- Profile summary / avatar card -->
+                    <div class="details-card mb-4 text-center">
+                        <div class="profile-avatar mx-auto" id="profileAvatar">
+                            <span id="avatarInitials">—</span>
+                        </div>
+                        <h2 class="profile-name mt-3 mb-0" id="avatarName">—</h2>
+                        <p class="profile-role mb-1">WheelWise Member</p>
+                        <p class="text-muted mb-0" id="avatarEmail">—</p>
+                        <button type="button" class="btn btn-view mt-4" id="btnEditProfile">Edit Profile</button>
+                    </div>
+
+                    <!-- Account actions -->
+                    <div class="details-card">
+                        <h2 class="details-title">Account Actions</h2>
+                        <div class="account-actions">
+                            <a href="my-bookings.html" class="account-action">
+                                <span class="account-action-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <rect x="3" y="4" width="18" height="16" rx="2"/>
+                                        <path d="M8 2v4 M16 2v4 M3 10h18"/>
+                                    </svg>
+                                </span>
+                                <span class="account-action-text">
+                                    <strong>My Bookings</strong>
+                                    <small>Manage your vehicle bookings</small>
+                                </span>
+                                <span class="account-action-arrow">&rarr;</span>
+                            </a>
+                            <a href="vehicles.html" class="account-action">
+                                <span class="account-action-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M5 11 6.5 8a2 2 0 0 1 1.8-1.2h8.4A2 2 0 0 1 18.5 8L20 11"/>
+                                        <rect x="3" y="11" width="18" height="6" rx="2"/>
+                                        <circle cx="7" cy="17" r="1.3"/>
+                                        <circle cx="17" cy="17" r="1.3"/>
+                                    </svg>
+                                </span>
+                                <span class="account-action-text">
+                                    <strong>Browse Vehicles</strong>
+                                    <small>Explore the catalogue</small>
+                                </span>
+                                <span class="account-action-arrow">&rarr;</span>
+                            </a>
+                            <button type="button" class="account-action account-action-logout" id="btnAccountLogout">
+                                <span class="account-action-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                        <path d="m16 17 5-5-5-5"/>
+                                        <path d="M21 12H9"/>
+                                    </svg>
+                                </span>
+                                <span class="account-action-text">
+                                    <strong>Logout</strong>
+                                    <small>Sign out of your account</small>
+                                </span>
+                                <span class="account-action-arrow">&rarr;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT column: account information + change password -->
+                <div class="col-lg-8">
+
+                    <!-- Account Information card -->
+                    <div class="details-card mb-4">
+                        <h2 class="details-title">Account Information</h2>
+
+                        <!-- Display mode -->
+                        <div id="profileView">
+                            <div class="spec-row">
+                                <span class="spec-label">Full Name</span>
+                                <span class="spec-value" id="pvName">—</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Email</span>
+                                <span class="spec-value" id="pvEmail">—</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Phone</span>
+                                <span class="spec-value" id="pvPhone">—</span>
+                            </div>
+                        </div>
+
+                        <!-- Edit mode -->
+                        <form id="profileEditForm" class="d-none" novalidate>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div class="mb-3" id="editNameGroup">
+                                        <label class="form-label" for="pfName">Full Name</label>
+                                        <input type="text" class="form-control" id="pfName" placeholder="Your full name">
+                                        <div class="invalid-feedback" id="pfNameError"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3" id="editEmailGroup">
+                                        <label class="form-label" for="pfEmail">Email</label>
+                                        <input type="email" class="form-control" id="pfEmail" placeholder="you@example.com">
+                                        <div class="invalid-feedback" id="pfEmailError"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3" id="editPhoneGroup">
+                                        <label class="form-label" for="pfPhone">Phone</label>
+                                        <input type="tel" class="form-control" id="pfPhone" placeholder="+1 555 010 2030">
+                                        <div class="invalid-feedback" id="pfPhoneError"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="submit" class="btn btn-login" id="btnSaveProfile">Save Changes</button>
+                                <button type="button" class="btn btn-outline-hero" id="btnCancelProfile">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Change Password card -->
+                    <div class="details-card">
+                        <h2 class="details-title">Change Password</h2>
+
+                        <!-- Friendly message when no password is stored (backend comes later) -->
+                        <div id="passwordInfoAlert" class="alert alert-info d-none" role="alert">
+                            Password management will be connected to the backend in a later milestone.
+                            No password is currently stored for this account.
+                        </div>
+
+                        <!-- Password success alert -->
+                        <div id="passwordSuccessAlert" class="alert alert-success fade d-none" role="alert">
+                            <strong>Password updated successfully.</strong> (Demo only — no real authentication yet.)
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                        <form id="passwordForm" class="d-none" novalidate>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div class="mb-3" id="pwCurrentGroup">
+                                        <label class="form-label" for="pwCurrent">Current Password</label>
+                                        <div class="pw-field">
+                                            <input type="password" class="form-control" id="pwCurrent" placeholder="Enter your current password">
+                                            <button type="button" class="pw-toggle" id="btnToggleCurrent" aria-label="Show or hide current password">Show</button>
+                                        </div>
+                                        <div class="invalid-feedback" id="pwCurrentError"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3" id="pwNewGroup">
+                                        <label class="form-label" for="pwNew">New Password</label>
+                                        <div class="pw-field">
+                                            <input type="password" class="form-control" id="pwNew" placeholder="At least 6 characters">
+                                            <button type="button" class="pw-toggle" id="btnToggleNew" aria-label="Show or hide new password">Show</button>
+                                        </div>
+                                        <div class="invalid-feedback" id="pwNewError"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3" id="pwConfirmGroup">
+                                        <label class="form-label" for="pwConfirm">Confirm New Password</label>
+                                        <div class="pw-field">
+                                            <input type="password" class="form-control" id="pwConfirm" placeholder="Re-enter the new password">
+                                            <button type="button" class="pw-toggle" id="btnToggleConfirm" aria-label="Show or hide confirm password">Show</button>
+                                        </div>
+                                        <div class="invalid-feedback" id="pwConfirmError"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-login" id="btnChangePassword">Change Password</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- =============================================
+             ERROR (no ww_user)
+             ============================================= -->
+        <div id="profileError" class="d-none text-center py-5">
+            <div class="no-results">
+                <div class="no-results-icon mx-auto mb-3">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/>
+                    </svg>
+                </div>
+                <h3>No profile information found</h3>
+                <p class="text-muted mb-4">We couldn&rsquo;t find your profile. Please sign in to continue.</p>
+                <a href="login.html" class="btn btn-login">Go to Login</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- =============================================
+         FOOTER
+         ============================================= -->
+    <footer class="home-footer mt-2">
+        <div class="container py-4 d-flex flex-wrap gap-2 justify-content-between align-items-center">
+            <span>&copy; 2026 WheelWise &middot; Vehicle Booking &middot; Full Stack Course Project</span>
+            <span class="footer-links">HTML &middot; CSS &middot; Bootstrap &middot; jQuery &middot; JSON</span>
+        </div>
+    </footer>
+
+    <!-- jQuery (CDN) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS bundle (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Auth + profile logic -->
+    <script src="js/auth.js"></script>
+
+</body>
+</html>
