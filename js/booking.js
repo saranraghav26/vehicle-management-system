@@ -386,8 +386,16 @@ $(function () {
         allBookings.push(booking);
         localStorage.setItem('ww_bookings', JSON.stringify(allBookings));
 
-        // 3) Confirmation page
-        window.location.href = 'confirmation.html';
+        // 3) Sync with Backend API asynchronously
+        $.ajax({
+            url: '/api/bookings',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(booking)
+        }).always(function () {
+            // 4) Navigate to Confirmation page
+            window.location.href = 'confirmation.html';
+        });
     });
 
     // Logout confirmation — clear the session, then go to Login

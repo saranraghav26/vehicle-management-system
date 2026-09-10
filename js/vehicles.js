@@ -20,9 +20,9 @@ $(function () {
         sort:     'default'
     };
 
-    /* ---------- Load vehicles from the local JSON file ---------- */
+    /* ---------- Load vehicles from the backend API or local JSON ---------- */
     $.ajax({
-        url: 'json/vehicles.json',
+        url: '/api/vehicles',
         method: 'GET',
         dataType: 'json'
     }).done(function (data) {
@@ -32,15 +32,34 @@ $(function () {
             buildLocationOptions(ALL_VEHICLES);
             render();
         } else {
+            fallbackLocalJson();
+        }
+    }).fail(function () {
+        fallbackLocalJson();
+    });
+
+    function fallbackLocalJson() {
+        $.ajax({
+            url: 'json/vehicles.json',
+            method: 'GET',
+            dataType: 'json'
+        }).done(function (data) {
+            var list = (data && data.vehicles) ? data.vehicles : (Array.isArray(data) ? data : []);
+            if (list.length) {
+                ALL_VEHICLES = list;
+                buildLocationOptions(ALL_VEHICLES);
+                render();
+            } else {
+                $('#vehiclesRow').html(
+                    '<p class="col-12 text-center text-muted py-4">Could not load the vehicle catalogue.</p>'
+                );
+            }
+        }).fail(function () {
             $('#vehiclesRow').html(
                 '<p class="col-12 text-center text-muted py-4">Could not load the vehicle catalogue.</p>'
             );
-        }
-    }).fail(function () {
-        $('#vehiclesRow').html(
-            '<p class="col-12 text-center text-muted py-4">Could not load the vehicle catalogue.</p>'
-        );
-    });
+        });
+    }
 
     // Populate the Location dropdown from the data (unique, sorted)
     function buildLocationOptions(list) {
@@ -252,7 +271,24 @@ $(function () {
     if (!vehicleId) {
         showError('No vehicle was selected. Please choose a vehicle from the listing to view its details.');
     } else {
-        // Load vehicles from the local JSON, then find the one we need.
+        // Try backend API first, fallback to JSON
+        $.ajax({
+            url: '/api/vehicles/' + vehicleId,
+            method: 'GET',
+            dataType: 'json'
+        }).done(function (res) {
+            if (res && res.success && res.vehicle) {
+                currentVehicle = res.vehicle;
+                populate(res.vehicle);
+            } else {
+                fallbackDetailsLocalJson();
+            }
+        }).fail(function () {
+            fallbackDetailsLocalJson();
+        });
+    }
+
+    function fallbackDetailsLocalJson() {
         $.ajax({
             url: 'json/vehicles.json',
             method: 'GET',
@@ -290,6 +326,12 @@ $(function () {
             .removeClass('available unavailable')
             .addClass(v.availability ? 'available' : 'unavailable')
             .text(v.availability ? 'Available' : 'Unavailable');
+
+        if (!v.availability) {
+            $('#btnBookNow').prop('disabled', true).text('Currently Unavailable');
+        } else {
+            $('#btnBookNow').prop('disabled', false).text('Book Now');
+        }
 
         // Description
         $('#detailDescription').text(v.description || 'No description available for this vehicle.');

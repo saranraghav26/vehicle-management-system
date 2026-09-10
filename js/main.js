@@ -22,16 +22,22 @@ $(function () {
         return;
     }
 
-    // Utility: send the user to the login page
-    var goToLogin = function () {
-        window.location.href = REDIRECT_URL;
+    // Utility: show the Role Selection Modal (Customer vs Admin)
+    var showRoleModal = function () {
+        var modalEl = document.getElementById('roleModal');
+        if (modalEl && typeof bootstrap !== 'undefined') {
+            var modal = new bootstrap.Modal(modalEl);
+            modal.show();
+        } else {
+            window.location.href = REDIRECT_URL;
+        }
     };
 
     // 1. Animate the loading progress bar (0 → 100%)
     $('#splashProgress')
         .css('width', '0%')
         .animate({ width: '100%' }, SPLASH_DELAY, 'linear', function () {
-            $('#splashStatus').text('Ride ready — taking you in…');
+            $('#splashStatus').text('System ready — select your portal…');
         });
 
     // 2. Rotate status messages during load
@@ -42,15 +48,15 @@ $(function () {
         }, (i + 1) * (SPLASH_DELAY / (statusSteps.length + 1)));
     });
 
-    // 3. Auto-navigate after the short delay
+    // 3. Open Role Modal after short delay
     var autoTimer = setTimeout(function () {
-        goToLogin();
+        showRoleModal();
     }, SPLASH_DELAY + 400);
 
-    // 4. Manual "Continue" button — instant navigation
+    // 4. Manual "Continue" button — instant role modal open
     $('#btnContinue').on('click', function () {
         clearTimeout(autoTimer);
-        goToLogin();
+        showRoleModal();
     });
 });
 
@@ -64,25 +70,43 @@ $(function () {
 
     var VEHICLES = [];
 
-    // ------------- Data: load vehicles from local JSON -------------
+    // ------------- Data: load vehicles from API or local JSON -------------
     $.ajax({
-        url: 'json/vehicles.json',
+        url: '/api/vehicles',
         method: 'GET',
         dataType: 'json'
     }).done(function (data) {
         VEHICLES = (data && data.vehicles) || (Array.isArray(data) ? data : []);
-        renderVehicles(VEHICLES);
-
-        // Update hero vehicle count
-        var $stat = $('#heroVehicleCount');
-        if ($stat.length) {
-            $stat.text(VEHICLES.length);
+        if (VEHICLES.length) {
+            renderVehicles(VEHICLES);
+            var $stat = $('#heroVehicleCount');
+            if ($stat.length) { $stat.text(VEHICLES.length); }
+        } else {
+            fallbackMainLocalJson();
         }
     }).fail(function () {
-        $('#featuredRow').html(
-            '<p class="col-12 text-center text-muted py-4">Could not load the vehicle catalogue.</p>'
-        );
+        fallbackMainLocalJson();
     });
+
+    function fallbackMainLocalJson() {
+        $.ajax({
+            url: 'json/vehicles.json',
+            method: 'GET',
+            dataType: 'json'
+        }).done(function (data) {
+            VEHICLES = (data && data.vehicles) || (Array.isArray(data) ? data : []);
+            renderVehicles(VEHICLES);
+
+            var $stat = $('#heroVehicleCount');
+            if ($stat.length) {
+                $stat.text(VEHICLES.length);
+            }
+        }).fail(function () {
+            $('#featuredRow').html(
+                '<p class="col-12 text-center text-muted py-4">Could not load the vehicle catalogue.</p>'
+            );
+        });
+    }
 
     // ------------- Rendering -------------
     function vehicleCard(v) {

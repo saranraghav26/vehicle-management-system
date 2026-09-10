@@ -62,9 +62,41 @@
 
                     <!-- Continue button -->
                     <button id="btnContinue" type="button" class="btn btn-continue mt-3">
-                        Continue&nbsp;&raquo;
+                        Continue &nbsp;&raquo;
                     </button>
 
+                </div>
+            </div>
+        </div>
+
+        <!-- Role Selection Modal -->
+        <div class="modal fade" id="roleModal" tabindex="-1" aria-labelledby="roleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content text-start text-white border-secondary" style="background-color: #111827; border-radius: 1rem;">
+                    <div class="modal-header border-secondary">
+                        <h5 class="modal-title fw-bold" id="roleModalLabel">Welcome to WheelWise</h5>
+                    </div>
+                    <div class="modal-body py-4">
+                        <p class="text-light small mb-4" style="color: #cbd5e1 !important;">Please select how you would like to proceed into the system:</p>
+
+                        <div class="d-grid gap-3">
+                            <a href="login.html" class="btn btn-outline-primary text-start p-3 d-flex align-items-center justify-content-between text-white text-decoration-none border-secondary rounded-3 hover-card">
+                                <div>
+                                    <h6 class="fw-bold mb-1 text-info">&bull; Customer Portal</h6>
+                                    <small style="color: #cbd5e1 !important;">Browse vehicle catalogue, make bookings & manage your profile</small>
+                                </div>
+                                <span class="fs-4">&rarr;</span>
+                            </a>
+
+                            <a href="admin-login.html" class="btn btn-outline-info text-start p-3 d-flex align-items-center justify-content-between text-white text-decoration-none border-secondary rounded-3 hover-card">
+                                <div>
+                                    <h6 class="fw-bold mb-1 text-warning">&bull; Admin Portal</h6>
+                                    <small style="color: #cbd5e1 !important;">Securely manage customers, fleet vehicles & all bookings</small>
+                                </div>
+                                <span class="fs-4">&rarr;</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

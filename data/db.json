@@ -1,0 +1,166 @@
+{
+  "users": [],
+  "vehicles": [
+    {
+      "vehicleId": 1,
+      "name": "Toyota Camry",
+      "type": "Sedan",
+      "seats": 5,
+      "transmission": "Automatic",
+      "pricePerDay": 48,
+      "location": "Downtown",
+      "availability": true,
+      "fuelType": "Petrol",
+      "year": 2023,
+      "image": "images/vehicles/camry.jpg",
+      "description": "A reliable, comfortable sedan with a smooth ride and strong resale value — perfect for city commutes and long drives alike.",
+      "features": [
+        "Automatic transmission",
+        "Apple CarPlay & Android Auto",
+        "Adaptive cruise control",
+        "Blind-spot monitoring"
+      ]
+    },
+    {
+      "vehicleId": 2,
+      "name": "Hyundai Creta",
+      "type": "SUV",
+      "seats": 5,
+      "transmission": "Automatic",
+      "pricePerDay": 52,
+      "location": "Airport",
+      "availability": true,
+      "fuelType": "Petrol",
+      "year": 2024,
+      "image": "images/vehicles/creta.jpg",
+      "description": "A bold and spacious compact SUV with confident handling, generous boot space and advanced safety features for every journey.",
+      "features": [
+        "All-wheel drive",
+        "360° camera",
+        "Panoramic sunroof",
+        "Heated front seats"
+      ]
+    },
+    {
+      "vehicleId": 3,
+      "name": "Hyundai i20",
+      "type": "Hatchback",
+      "seats": 5,
+      "transmission": "Manual",
+      "pricePerDay": 28,
+      "location": "Downtown",
+      "availability": true,
+      "fuelType": "Petrol",
+      "year": 2024,
+      "image": "images/vehicles/i20.jpg",
+      "description": "A nimble, feature-packed hatchback that is fun to drive and exceptionally fuel efficient around town.",
+      "features": [
+        "Fuel efficient (18 km/l)",
+        "Touchscreen infotainment",
+        "Rear parking sensors",
+        "Electric sunroof"
+      ]
+    },
+    {
+      "vehicleId": 4,
+      "name": "Mercedes C-Class",
+      "type": "Luxury",
+      "seats": 5,
+      "transmission": "Automatic",
+      "pricePerDay": 125,
+      "location": "City Center",
+      "availability": true,
+      "fuelType": "Petrol",
+      "year": 2023,
+      "image": "images/vehicles/cclass.jpg",
+      "description": "Elegant, refined German luxury with a premium interior and effortlessly smooth performance.",
+      "features": [
+        "Leather interior",
+        "Ambient lighting",
+        "Burmester sound system",
+        "Wireless phone charging"
+      ]
+    },
+    {
+      "vehicleId": 5,
+      "name": "Kia Seltos",
+      "type": "SUV",
+      "seats": 5,
+      "transmission": "Automatic",
+      "pricePerDay": 45,
+      "location": "Seaside",
+      "availability": true,
+      "fuelType": "Petrol",
+      "year": 2024,
+      "image": "images/vehicles/seltos.jpg",
+      "description": "A stylish compact SUV with a bold design, connected tech and a comfortable ride for urban and highway driving.",
+      "features": [
+        "10.25-inch touchscreen",
+        "ADAS safety suite",
+        "LED headlamps",
+        "Ventilated front seats"
+      ]
+    },
+    {
+      "vehicleId": 6,
+      "name": "Toyota Innova Crysta",
+      "type": "MPV",
+      "seats": 7,
+      "transmission": "Automatic",
+      "pricePerDay": 68,
+      "location": "Metro Mall",
+      "availability": true,
+      "fuelType": "Diesel",
+      "year": 2023,
+      "image": "images/vehicles/innova.jpg",
+      "description": "A premium multi-purpose vehicle with versatile 7-seater comfort, trusted reliability and a refined diesel engine.",
+      "features": [
+        "7-seater layout",
+        "Captain seats (2nd row)",
+        "Automatic climate control",
+        "Cruise control"
+      ]
+    },
+    {
+      "vehicleId": 7,
+      "name": "Tata Nexon",
+      "type": "SUV",
+      "seats": 5,
+      "transmission": "Automatic",
+      "pricePerDay": 40,
+      "location": "Airport",
+      "availability": true,
+      "fuelType": "Diesel",
+      "year": 2024,
+      "image": "images/vehicles/nexon.jpg",
+      "description": "A top-rated compact SUV with a 5-star safety rating, punchy engine and modern connected car technology.",
+      "features": [
+        "5-star Global NCAP rating",
+        "7-inch touchscreen",
+        "Automatic climate control",
+        "Rear parking camera"
+      ]
+    },
+    {
+      "vehicleId": 8,
+      "name": "MG ZS EV",
+      "type": "EV",
+      "seats": 5,
+      "transmission": "Automatic",
+      "pricePerDay": 58,
+      "location": "Downtown",
+      "availability": false,
+      "fuelType": "Electric",
+      "year": 2024,
+      "image": "images/vehicles/zsev.jpg",
+      "description": "A silent, peppy electric SUV that is wallet-friendly to run, packed with connected tech and zero emissions.",
+      "features": [
+        "Electric (300+ km range)",
+        "Fast charging support",
+        "Connected car technology",
+        "Regenerative braking"
+      ]
+    }
+  ],
+  "bookings": []
+}

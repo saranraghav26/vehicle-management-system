@@ -1,0 +1,345 @@
+/* =============================================
+   admin.css — WheelWise Admin Module Styles
+   Bootstrap 5 compatible, sleek modern UI
+   ============================================= */
+
+:root {
+    --admin-bg-dark: #0f172a;
+    --admin-bg-card: #1e293b;
+    --admin-primary: #3b82f6;
+    --admin-primary-hover: #2563eb;
+    --admin-accent: #06b6d4;
+    --admin-text-main: #ffffff;
+    --admin-text-muted: #cbd5e1;
+    --admin-border: #334155;
+    --admin-sidebar-w: 260px;
+}
+
+body.admin-body {
+    background-color: #0b0f19;
+    color: var(--admin-text-main);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+}
+
+body.admin-body .text-muted {
+    color: var(--admin-text-muted) !important;
+}
+
+body.admin-body label {
+    color: #e2e8f0 !important;
+    font-weight: 500;
+}
+
+/* Auth Login Card */
+.admin-login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.15), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(6, 182, 212, 0.15), transparent 40%),
+                #0b0f19;
+    padding: 2rem 1rem;
+}
+
+.admin-login-card {
+    background: var(--admin-bg-card);
+    border: 1px solid var(--admin-border);
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+    max-width: 440px;
+    width: 100%;
+    padding: 2.5rem 2rem;
+}
+
+.admin-brand-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.admin-brand-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* Dashboard Layout */
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.admin-sidebar {
+    width: var(--admin-sidebar-w);
+    background: var(--admin-bg-dark);
+    border-right: 1px solid var(--admin-border);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+    transition: transform 0.3s ease;
+}
+
+.admin-sidebar-header {
+    padding: 1.5rem 1.25rem;
+    border-bottom: 1px solid var(--admin-border);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.admin-sidebar-brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+}
+
+.admin-sidebar-nav {
+    padding: 1rem 0.75rem;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.admin-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--admin-text-muted);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    margin-bottom: 0.35rem;
+    cursor: pointer;
+}
+
+.admin-nav-item:hover, .admin-nav-item.active {
+    background: rgba(59, 130, 246, 0.12);
+    color: #60a5fa;
+}
+
+.admin-nav-item svg {
+    width: 20px;
+    height: 20px;
+}
+
+.admin-sidebar-footer {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--admin-border);
+}
+
+/* Main Content Area */
+.admin-main {
+    margin-left: var(--admin-sidebar-w);
+    flex: 1;
+    padding: 2rem 2.5rem;
+    min-width: 0;
+}
+
+.admin-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+/* Summary Metric Cards */
+.metric-card {
+    background: var(--admin-bg-card);
+    border: 1px solid var(--admin-border);
+    border-radius: 0.85rem;
+    padding: 1.25rem 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+}
+
+.metric-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.metric-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #cbd5e1;
+}
+
+.metric-icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+}
+
+.metric-value {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+}
+
+.metric-sub {
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    margin-top: 0.4rem;
+}
+
+/* Table Cards */
+.admin-card {
+    background: var(--admin-bg-card);
+    border: 1px solid var(--admin-border);
+    border-radius: 0.85rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.admin-card-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--admin-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.admin-card-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+
+.admin-table {
+    width: 100%;
+    margin-bottom: 0;
+    color: #f8fafc;
+    vertical-align: middle;
+}
+
+.admin-table th {
+    background: rgba(15, 23, 42, 0.8);
+    color: #e2e8f0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-table td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--admin-border);
+    background: transparent;
+    font-size: 0.9rem;
+    color: #f8fafc;
+}
+
+.admin-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* Status Badges */
+.admin-badge {
+    padding: 0.35em 0.75em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.admin-badge.badge-confirmed { background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.4); }
+.admin-badge.badge-completed { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
+.admin-badge.badge-cancelled { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+.admin-badge.badge-active    { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+.admin-badge.badge-inactive  { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.4); }
+
+/* Form Controls dark theme */
+.admin-form-control, .admin-form-select {
+    background-color: #0f172a !important;
+    border: 1px solid var(--admin-border) !important;
+    color: #ffffff !important;
+    border-radius: 0.5rem !important;
+}
+
+.admin-form-control::placeholder {
+    color: #94a3b8 !important;
+    opacity: 1;
+}
+
+.admin-form-select option {
+    background-color: #1e293b !important;
+    color: #ffffff !important;
+}
+
+.admin-form-control:focus, .admin-form-select:focus {
+    border-color: var(--admin-primary) !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25) !important;
+}
+
+/* Modals */
+.modal-content.admin-modal {
+    background-color: var(--admin-bg-card);
+    border: 1px solid var(--admin-border);
+    color: #ffffff;
+    border-radius: 1rem;
+}
+
+.modal-header.admin-modal-header {
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.modal-footer.admin-modal-footer {
+    border-top: 1px solid var(--admin-border);
+}
+
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Responsive sidebar */
+@media (max-width: 991.98px) {
+    .admin-sidebar {
+        transform: translateX(-100%);
+    }
+    .admin-sidebar.show {
+        transform: translateX(0);
+    }
+    .admin-main {
+        margin-left: 0;
+        padding: 1.5rem 1rem;
+    }
+}
